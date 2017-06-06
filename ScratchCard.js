@@ -88,7 +88,7 @@ var ScratchCard = {
 
 
     ,
-    handleMouseDown: function (e) {
+    handleMouseDodwn: function (e) {
         isDrawing = true;
         lastPoint = this.getMouse(e, _that);
     }
