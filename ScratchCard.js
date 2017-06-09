@@ -2,14 +2,20 @@
 
 
 var ScratchCard = {
+
+    encryptActNo: "GO9YS/t27Q3YH2gaddqRNw==",
+
     /*
      * ScratchCard開關
      * */
     isEnable: false,
     isPhoto: true,
     percentToShow: 90,
+    
+
+
     /**
-     * 
+     * 畫布相關參數 
     */
     container: "",
     isDrawing: null,
@@ -53,6 +59,21 @@ var ScratchCard = {
             alert("您使用的瀏覽器支援Canvas套件，請更新、更換瀏覽器重新嘗試");
         } else {
             _that.initListener();
+            var success = function (data) {
+                alert(data);
+            };
+            var fail = function (data) {
+
+            };
+            var postData = "actno=" + _that.encryptActNo;
+            var url = "http://localhost:61823/AjaxAction/GetLotteryActionTimeJSON";
+            $.ajax({
+                url: url,
+                data: postData,
+                type: "POST",
+                success: success,
+                error: fail
+            });
         }
 
 
